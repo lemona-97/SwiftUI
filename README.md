@@ -26,3 +26,18 @@ SwiftUI 튜토리얼 학습 레포
      ![스크린샷 2023-10-23 오후 3 18 39](https://github.com/lemona-97/SwiftUI/assets/75213755/dedcb095-c448-49a2-b217-9127a5ab5ddc)
 
   * NavigationLink의 클로저에 이동하고자 하는 destination을 설정하여 view를 이동 할 수 있다. (UIKit의 pushViewController 인 듯)
+    
+- Section 3
+  * @State 속성을 property에 부여함으로써 해당 값이 변경 될 때 마다 view가 갱신된다. (String, Bool, Int 같은 간단한 타입)
+  * @State를 통해 특정 뷰의 상태를 나타내는 property를 선언 할 경우 해당 뷰에서만 접근 가능하도록 private을 설정 해야한다 <br> (아마 다른 view에서 잘못 접근하여 변경이 되는것을 방지 하려는듯 싶다, 같은 property명을 사용할 수 도 있으니까)
+  * SwiftUI에서는 observable property가 변화 하고, view의 body가 해당 property를 직접 읽을때만 view를 update한다
+    
+     ![스크린샷 2023-10-23 오후 5 13 09](https://github.com/lemona-97/SwiftUI/assets/75213755/12d410a9-1305-4066-acc9-46b623f4b551)
+
+  * childView - @Environment 속성을 프로퍼티에 추가
+  * parentView - environment(_:) 수정자를 미리보기(parentView이기도 함)에 추가해야함
+  * App에서 ContentView()에 .environment(_:)로 데이터모델의 인스턴스를 넘겨주면 하위 뷰에서 모두 관찰 가능. <br> 이외에도 .environment의 파라미터로는 envirionmentValues type에 해당하는 여러가지 값( ex)다크모드 상태, 국가정보, 시간대 정보 등) 을 넘겨줄 수 있다. 그래서 하위 뷰에서 모두 적용 및 관찰됨
+    
+     ![스크린샷 2023-10-23 오후 5 17 00](https://github.com/lemona-97/SwiftUI/assets/75213755/63237143-19c1-486c-b047-ab86532a7680)
+
+  
