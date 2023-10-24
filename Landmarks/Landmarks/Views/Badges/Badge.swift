@@ -28,7 +28,7 @@ struct Badge: View {
                 
             }
         }
-        
+        .scaledToFit()
         
     }
 }
