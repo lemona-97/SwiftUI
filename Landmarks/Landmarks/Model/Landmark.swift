@@ -18,7 +18,7 @@ struct Landmark: Hashable, Codable, Identifiable {
     var isFavorite  : Bool
     var isFeatured  : Bool
     var category: Category
-    enum Category: String, CaseIterable, Codable {
+    enum Category: String, CaseIterable, Codable, Hashable {
         case lakes = "Lakes"
         case rivers = "Rivers"
         case mountains = "Mountains"
@@ -28,7 +28,9 @@ struct Landmark: Hashable, Codable, Identifiable {
     var image : Image {
         Image(imageName)
     }
-    
+    var featureImage: Image? {
+        isFeatured ? Image(imageName + "_feature") : nil
+    }
     private var coordinates: Coordinates
     var locationCoordinate : CLLocationCoordinate2D {
         CLLocationCoordinate2D(
